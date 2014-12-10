@@ -10,13 +10,22 @@
     (lexic-shortest-concat []) => "")
   
   (fact 
-    "it works for trivial non-empty lists"
+    "it works for trivial non-empty words lists"
     
     (lexic-shortest-concat 
       ["facebook" "hacker" "cup" "for" "studious" "students"]) => "cupfacebookforhackerstudentsstudious"
     
     (lexic-shortest-concat 
       ["k" "duz" "q" "rc" "lvraw"]) => "duzklvrawqrc"
+    
+    (lexic-shortest-concat 
+      ["mybea" "zdr" "yubx" "xe" "dyroiy"]) => "dyroiymybeaxeyubxzdr"
+    
+    (lexic-shortest-concat 
+      ["uiuy" "hopji" "li" "j" "dcyi"])=> "dcyihopjijliuiuy")
   
-   (lexic-shortest-concat 
-     ["mybea" "zdr" "yubx" "xe" "dyroiy"]) => "dyroiymybeaxeyubxzdr"))
+  (fact 
+    "it also works for non-trivial word lists"
+    
+    (lexic-shortest-concat 
+      ["jibw" "ji" "jp" "bw" "jibw"]) => "bwjibwjibwjijp"))
