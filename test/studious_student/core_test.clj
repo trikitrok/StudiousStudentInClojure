@@ -34,7 +34,7 @@
     "it reads a file and concatenates the words in each line 
     to generate the lexicographically lowest possible strings"
     
-    (lexic-shortest-concat-lines-of 
+    (lexic-shortest-concat-lines 
       "./test/studious_student/studious_student.in") 
     => '("cupfacebookforhackerstudentsstudious"
          "duzklvrawqrc"
