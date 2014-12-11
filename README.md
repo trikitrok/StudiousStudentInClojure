@@ -28,9 +28,9 @@ one per line and in order.
 
 Constraints
 
-1 <= N <= 100
-1 <= M <= 9
-1 <= all word lengths <= 10
+1 \<= N \<= 100
+1 \<= M \<= 9
+1 \<= all word lengths \<= 10
 
 Example input
 
