@@ -19,4 +19,11 @@
   (map lexic-shortest-concat 
        (extract-words-lists file)))
 
+(defn studious-student [file-in file-out]
+  (spit 
+    file-out
+    (clojure.string/join 
+      "\n" 
+      (lexic-shortest-concat-lines-of file-in))))
+
 

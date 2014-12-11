@@ -45,3 +45,16 @@
 
 (map lexic-shortest-concat
      (extract-words-lists "test/studious_student/studious_student.in"))
+
+
+(slurp "./test/studious_student/studious_student.out")
+
+(defn lexic-shortest-concat-lines-of [file]
+  (map lexic-shortest-concat
+       (extract-words-lists file)))
+
+(lexic-shortest-concat-lines-of "./test/studious_student/studious_student.in")
+
+(spit "./test/studious_student/studious_student.out"
+              (clojure.string/join "\n" (lexic-shortest-concat-lines-of
+                       "./test/studious_student/studious_student.in")))

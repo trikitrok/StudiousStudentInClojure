@@ -40,4 +40,20 @@
          "duzklvrawqrc"
          "dyroiymybeaxeyubxzdr"
          "bwjibwjibwjijp"
+         "dcyihopjijliuiuy"))
+  
+  (fact 
+    "it writes an output files with the lexicographically lowest possible strings
+    of the words in each line of a given file"
+    (do 
+      (studious-student 
+        "./test/studious_student/studious_student.in" 
+        "./test/studious_student/studious_student.out")
+      
+      (clojure.string/split-lines 
+        (slurp "./test/studious_student/studious_student.out")))
+    => '("cupfacebookforhackerstudentsstudious"
+         "duzklvrawqrc"
+         "dyroiymybeaxeyubxzdr"
+         "bwjibwjibwjijp"
          "dcyihopjijliuiuy")))
