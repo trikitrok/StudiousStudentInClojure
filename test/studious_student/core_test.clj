@@ -28,4 +28,16 @@
     "it also works for non-trivial word lists"
     
     (lexic-shortest-concat 
-      ["jibw" "ji" "jp" "bw" "jibw"]) => "bwjibwjibwjijp"))
+      ["jibw" "ji" "jp" "bw" "jibw"]) => "bwjibwjibwjijp")
+  
+  (fact
+    "it reads a file and concatenates the words in each line 
+    to generate the lexicographically lowest possible strings"
+    
+    (lexic-shortest-concat-lines-of 
+      "./test/studious_student/studious_student.in") 
+    => '("cupfacebookforhackerstudentsstudious"
+         "duzklvrawqrc"
+         "dyroiymybeaxeyubxzdr"
+         "bwjibwjibwjijp"
+         "dcyihopjijliuiuy")))
