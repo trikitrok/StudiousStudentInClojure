@@ -1,0 +1,3 @@
+(require 'studious-student.core)
+(studious-student.core/studious-student "./studious_student.in" "s.out")
+(= (slurp "s.out") (slurp "studious_student.out"))

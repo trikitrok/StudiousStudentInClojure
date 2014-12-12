@@ -3,32 +3,36 @@
   (:use [studious-student.core]))
 
 (facts 
-  "about Studious student"
+  "about Studious Student exercise"
   
-  (fact 
-    "it works for an empty words list"
-    (lexic-shortest-concat []) => "")
-  
-  (fact 
-    "it works for trivial non-empty words lists"
+  (facts 
+    "about concatenating the words in a list of words 
+    to generate the lexicographically lowest possible strings"
     
-    (lexic-shortest-concat 
-      ["facebook" "hacker" "cup" "for" "studious" "students"]) => "cupfacebookforhackerstudentsstudious"
+    (fact 
+      "it works for an empty words list"
+      (lexic-shortest-concat []) => "")
     
-    (lexic-shortest-concat 
-      ["k" "duz" "q" "rc" "lvraw"]) => "duzklvrawqrc"
+    (fact 
+      "it works for trivial non-empty words lists"
+      
+      (lexic-shortest-concat 
+        ["facebook" "hacker" "cup" "for" "studious" "students"]) => "cupfacebookforhackerstudentsstudious"
+      
+      (lexic-shortest-concat 
+        ["k" "duz" "q" "rc" "lvraw"]) => "duzklvrawqrc"
+      
+      (lexic-shortest-concat 
+        ["mybea" "zdr" "yubx" "xe" "dyroiy"]) => "dyroiymybeaxeyubxzdr"
+      
+      (lexic-shortest-concat 
+        ["uiuy" "hopji" "li" "j" "dcyi"])=> "dcyihopjijliuiuy")
     
-    (lexic-shortest-concat 
-      ["mybea" "zdr" "yubx" "xe" "dyroiy"]) => "dyroiymybeaxeyubxzdr"
-    
-    (lexic-shortest-concat 
-      ["uiuy" "hopji" "li" "j" "dcyi"])=> "dcyihopjijliuiuy")
-  
-  (fact 
-    "it also works for non-trivial word lists"
-    
-    (lexic-shortest-concat 
-      ["jibw" "ji" "jp" "bw" "jibw"]) => "bwjibwjibwjijp")
+    (fact 
+      "it also works for non-trivial word lists"
+      
+      (lexic-shortest-concat 
+        ["jibw" "ji" "jp" "bw" "jibw"]) => "bwjibwjibwjijp"))
   
   (fact
     "it reads a file and concatenates the words in each line 
@@ -42,7 +46,7 @@
          "bwjibwjibwjijp"
          "dcyihopjijliuiuy"))
   
-  (let [out "./test/studious_student/studious_student.out"]
+  (let [out "./test/studious_student/s.out"]
     
     (fact 
       "it writes an output files with the lexicographically lowest possible strings
@@ -55,5 +59,14 @@
                                                        "dyroiymybeaxeyubxzdr"
                                                        "bwjibwjibwjijp"
                                                        "dcyihopjijliuiuy")
+      
+      (against-background (after :facts (clojure.java.io/delete-file out))))
+    
+    (fact 
+      "it also works for the long given input file"
+      
+      (do (studious-student "./test/studious_student/studious_student_long.in" out)
+        
+        (slurp out) => (slurp "./test/studious_student/studious_student_long.out"))
       
       (against-background (after :facts (clojure.java.io/delete-file out))))))
